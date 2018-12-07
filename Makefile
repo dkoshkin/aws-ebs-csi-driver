@@ -30,12 +30,15 @@ test:
 
 .PHONY: test-sanity
 test-sanity:
-	go test -v ./tests/sanity/...
+	./hack/run-sanity-test
 
 .PHONY: test-integration
 test-integration:
-	go test -c ./tests/integration/... -o bin/integration.test && \
-	sudo -E bin/integration.test -ginkgo.v
+	./hack/run-integration-test
+
+.PHONY: test-e2e
+test-e2e:
+	./hack/run-e2e-test
 
 .PHONY: image
 image:

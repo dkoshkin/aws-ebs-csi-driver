@@ -91,16 +91,10 @@ Please go through [CSI Spec](https://github.com/container-storage-interface/spec
 
 ### Requirements
 * Golang 1.11.2+
-* [Ginkgo](https://github.com/onsi/ginkgo) for integration and end-to-end testing
+* [Ginkgo](https://github.com/onsi/ginkgo) in your PATH for sanity, integration and end-to-end testing
 * Docker 17.05+ for releasing
 
 ### Testing
-
-In order to make sure that the driver complies with the CSI specification, run the command:
-
-```
-make test-sanity
-```
 
 To execute all unit tests, run:
 
@@ -108,10 +102,21 @@ To execute all unit tests, run:
 make test
 ```
 
+In order to make sure that the driver complies with the CSI specification, run the command:
+
+```
+make test-sanity
+```
+
 To execute integration tests, run:
 
 ```
 make test-integration
+```
+
+To execute e2e tests:
+```
+make test-e2e
 ```
 
 **Note**: EC2 instance is required to run integration test, since it is exercising the actual flow of creating EBS volume, attaching it and read/write on the disk.
